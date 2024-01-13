@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>Document</title>
     <style>
       select {
@@ -15,7 +18,10 @@
     </style>
   </head>
   <body>
-    <label for="cities">Which city are you visiting?</label>
+    <div id="today"></div>
+    <div id="tomorrow"></div>
+
+    <label for="cities">Which city are you planning to visit?</label>
     <select id="cities">
       <option value="">Select a country</option>
       <option value="paris">Paris</option>
@@ -23,26 +29,56 @@
       <option value="sydney">Sydney</option>
     </select>
     <script>
+      let localTimeTokyo = moment()
+        .tz("Asia/Tokyo")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+      let localTimeParis = moment()
+        .tz("France/Paris")
+        .format("dddd, MMMM D, YYYY h:m A");
+
+      let localTimeSydney = moment()
+        .tz("Australia/Sydney")
+        .format("dddd, MMMM D, YYYY h:m A");
+
       function showSelectedCity(event) {
+        let tokyoTime = moment()
+          .tz("Asie/Tokyo")
+          .format("dddd, MMMM D, YYYY h;m A");
+
+        let sydneyTime = moment();
+
         new Date();
         let date = new Date();
 
         if (event.target.value.length > 0) {
           if (event.target.value === "paris") {
-            alert(`Hi, it is ${date} in Paris`);
+            alert(`Hi, it is ${date} and it is ${localTimezoneParis} in Paris`);
           }
           if (event.target.value === "tokyo") {
-            alert(`Hi, it is ${date} in Tokyo`);
+            alert(`Hi, it is ${date} and it is ${localTimeZoneTokyo} in Tokyo`);
           }
 
           if (event.target.value === "sydney") {
-            alert(`Hi, it is ${date} in Sydney`);
+            alert(
+              `Hi, it is ${date} and it is ${localTimeZoneSydney} in Sydney`
+            );
           }
         }
       }
 
       let citiesSelect = document.querySelector("#cities");
       citiesSelect.addEventListener("change", showSelectedCity);
+
+      let today = moment().format("dddd Do MMMM YYYY H:m:ss");
+      let todayElement = document.querySelector("#today");
+      todayElement.innerHTML = today;
+
+      let tomorrowElement = document.querySelector("#tomorrow");
+      let tomorrow = moment()
+        .add(10, "years")
+        .format("dddd, MMMM D, YYYY H:mm:ss");
+      tomorrowElement.innerHTML = `10 years from now, it will be ${tomorrow}`;
     </script>
   </body>
 </html>
