@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      select {
+        display: block;
+        padding: 5px 8px;
+        border-radius: 4px;
+        min-width: 200px;
+        margin: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="cities">Which city are you visiting?</label>
+    <select id="cities">
+      <option value="">Select a country</option>
+      <option value="paris">Paris</option>
+      <option value="tokyo">Tokyo</option>
+      <option value="sydney">Sydney</option>
+    </select>
+    <script>
+      function showSelectedCity(event) {
+        new Date();
+        let date = new Date();
+
+        if (event.target.value.length > 0) {
+          if (event.target.value === "paris") {
+            alert(`Hi, it is ${date} in Paris`);
+          }
+          if (event.target.value === "tokyo") {
+            alert(`Hi, it is ${date} in Tokyo`);
+          }
+
+          if (event.target.value === "sydney") {
+            alert(`Hi, it is ${date} in Sydney`);
+          }
+        }
+      }
+
+      let citiesSelect = document.querySelector("#cities");
+      citiesSelect.addEventListener("change", showSelectedCity);
+    </script>
+  </body>
+</html>
