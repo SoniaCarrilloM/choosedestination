@@ -13,7 +13,7 @@
       }
       select {
         padding: 30px 15px;
-        background-color: orange;
+        background-color: teal;
         border-radius: 30px;
         color: blue;
         margin: 5%;
@@ -63,14 +63,14 @@
 
     <p>
       Before you choose your ideal city to visit during your next holidays, let
-      me remind you that <span class="today" id="today"></span>
+      me remind you that it is <span class="today" id="today"></span>
       and
       <span class="today" id="tomorrow"></span>
     </p>
     <h2>
       <label for="cities">Which city are you planning to visit?</label>
       <select id="cities">
-        <option value="">Select a country</option>
+        <option value="">Select a city</option>
         🇫🇷
         <option value="paris">Paris 🥐</option>
         <option value="tokyo">Tokyo 🗼</option>
@@ -97,15 +97,15 @@
       function showSelectedCity(event) {
         let localTimeTokyo = moment()
           .tz("Asia/Tokyo")
-          .format("dddd, MMMM D, YYYY h:m A");
+          .format("dddd, MMMM D, YYYY H:mm:ss A");
 
         let localTimeParis = moment()
           .tz("France/Paris")
-          .format("dddd, MMMM D, YYYY h:m A");
+          .format("dddd, MMMM D, YYYY H:mm:ss A");
 
         let localTimeSydney = moment()
           .tz("Australia/Sydney")
-          .format("dddd, MMMM D, YYYY h:m A");
+          .format("dddd, MMMM D, YYYY H:mm:ss A");
 
         if (event.target.value.length > 0) {
           if (event.target.value === "paris") {
@@ -124,7 +124,7 @@
       let citiesSelect = document.querySelector("#cities");
       citiesSelect.addEventListener("change", showSelectedCity);
 
-      let today = moment().format("dddd Do MMMM YYYY H:m:ss");
+      let today = moment().format("dddd Do MMMM YYYY H:mm:ss");
       let todayElement = document.querySelector("#today");
       todayElement.innerHTML = today;
 
