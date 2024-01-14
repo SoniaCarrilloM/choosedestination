@@ -42,23 +42,16 @@
           .tz("Australia/Sydney")
           .format("dddd, MMMM D, YYYY h:m A");
 
-        let sydneyTime = moment();
-
-        new Date();
-        let date = new Date();
-
         if (event.target.value.length > 0) {
           if (event.target.value === "paris") {
-            alert(`Hi, it is ${date} and it is ${localTimezoneParis} in Paris`);
+            alert(`Hi, it is ${localTimeParis} in Paris`);
           }
           if (event.target.value === "tokyo") {
-            alert(`Hi, it is ${date} and it is ${localTimeZoneTokyo} in Tokyo`);
+            alert(`Hi, it is ${localTimeTokyo} in Tokyo`);
           }
 
           if (event.target.value === "sydney") {
-            alert(
-              `Hi, it is ${date} and it is ${localTimeZoneSydney} in Sydney`
-            );
+            alert(`Hi, it is ${localTimeSydney} in Sydney`);
           }
         }
       }
