@@ -129,9 +129,7 @@
       todayElement.innerHTML = today;
 
       let tomorrowElement = document.querySelector("#tomorrow");
-      let tomorrow = moment()
-        .add(10, "years")
-        .format("dddd, MMMM D, YYYY H:mm:ss");
+      let tomorrow = moment().add(10, "years").format("YYYY");
       tomorrowElement.innerHTML = `10 years from now, it will be ${tomorrow}`;
     </script>
   </body>
