@@ -29,22 +29,18 @@
       <option value="sydney">Sydney</option>
     </select>
     <script>
-      let localTimeTokyo = moment()
-        .tz("Asia/Tokyo")
-        .format("dddd, MMMM D, YYYY h:m A");
-
-      let localTimeParis = moment()
-        .tz("France/Paris")
-        .format("dddd, MMMM D, YYYY h:m A");
-
-      let localTimeSydney = moment()
-        .tz("Australia/Sydney")
-        .format("dddd, MMMM D, YYYY h:m A");
-
       function showSelectedCity(event) {
-        let tokyoTime = moment()
-          .tz("Asie/Tokyo")
-          .format("dddd, MMMM D, YYYY h;m A");
+        let localTimeTokyo = moment()
+          .tz("Asia/Tokyo")
+          .format("dddd, MMMM D, YYYY h:m A");
+
+        let localTimeParis = moment()
+          .tz("France/Paris")
+          .format("dddd, MMMM D, YYYY h:m A");
+
+        let localTimeSydney = moment()
+          .tz("Australia/Sydney")
+          .format("dddd, MMMM D, YYYY h:m A");
 
         let sydneyTime = moment();
 
